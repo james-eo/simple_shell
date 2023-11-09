@@ -18,7 +18,14 @@ int main(void)
 		{
 			exit_shell();
 		}
-		execute_prompt(user_command);
+		else if (strcmp(user_command, "env") == 0)
+		{
+			print_environment();
+		}
+		else
+		{
+			execute_prompt(user_command);
+		}
 	}
 	return (0);
 }

@@ -108,13 +108,3 @@ int is_command_in_path(const char *command)
 	free(path_copy);
 	return (0);
 }
-
-/**
- * exit_shell - exits the shell
- */
-
-void exit_shell(void)
-{
-	my_printf("Exiting shell.\n");
-	exit(EXIT_SUCCESS);
-}

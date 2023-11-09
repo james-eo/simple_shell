@@ -1,13 +1,16 @@
 #include "shell.h"
 
 /**
- * my_printf - prints input to the standard output
- * @print_command: prints the command to stdout
-*/
+ * my_printf - simplified printf implementation
+ * @format: format string
+ * @...: variable arguments
+ */
 
-void my_printf(const char *print_command, ...)
+void my_printf(const char *format, ...)
 {
-	write(STDOUT_FILENO, print_command, strlen(print_command));
+	va_list args;
+
+	va_start(args, format);
+	vprintf(format, args);
+	va_end(args);
 }
-
-
