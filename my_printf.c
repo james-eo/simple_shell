@@ -5,7 +5,7 @@
  * @print_command: prints the command to stdout
 */
 
-void my_printf(const char *print_command)
+void my_printf(const char *print_command, ...)
 {
 	write(STDOUT_FILENO, print_command, strlen(print_command));
 }

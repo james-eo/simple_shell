@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * get_input - gets prompt as input from users
+ * read_input - gets prompt as input from users
  * @input: the command to executed
  * @size_of_input: size of the prompt
  *
