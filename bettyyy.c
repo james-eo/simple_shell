@@ -25,5 +25,4 @@ int main(void)
 	printf("Result: %d\n", result);
 
 	return (0);
-
 }
