@@ -1,3 +1,10 @@
+#!/bin/sh
+
+git shortlog -se \
+  | perl -spe 's/^\s+\d+\s+//' \
+  | sed -e '/^CommitSyncScript.*$/d' \
+  > AUTHORS
+
 # This file lists all individuals having contributed content to the repository.
 # For how it is generated, communicate with us or check to see `hack/generate-authors.sh`.
 
