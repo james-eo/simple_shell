@@ -32,6 +32,12 @@ int main(void)
 		{
 			handle_unsetenv(user_command);
 		}
+		else if (my_strncmp(user_command, "cd", 2) == 0)
+		{
+			char *path = my_strtok(user_command + 3, " ");
+
+			change_directory(path);
+		}
 		else
 		{
 			execute_prompt(user_command);

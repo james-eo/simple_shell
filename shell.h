@@ -1,5 +1,8 @@
 #ifndef SHELL_H
 #define SHELL_H
+#ifndef PATH_MAX
+#define PATH_MAX 4096
+#endif
 
 #define BUFFER_SIZE 1024
 #define MAX_ARGS 170
@@ -21,6 +24,7 @@
 #include <stdarg.h>
 #include <errno.h>
 #include <stddef.h>
+#include <limits.h>
 
 extern char **environ;
 
@@ -44,6 +48,7 @@ void handle_setenv(const char *command);
 void handle_unsetenv(const char *command);
 int set_environment_variable(const char *variable, const char *value);
 int unset_environment_variable(const char *variable);
+void change_directory(const char *path);
 
 
 
