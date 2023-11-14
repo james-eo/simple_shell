@@ -1,6 +1,8 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+#define BUFFER_SIZE 1024
+#define MAX_ARGS 170
 
 /**
  * This header file contains all the functions
@@ -16,6 +18,13 @@
 #include <stdbool.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <stdarg.h>
+#include <errno.h>
+
+extern char **environ;
+
+
+
 
 
 void display_prompt(void);
@@ -26,7 +35,9 @@ void execute_command_with_args(const char *command);
 void execute_command(const char *command);
 int is_command_in_path(const char *command);
 void exit_shell(void);
-
+void print_environment(void);
+ssize_t _getline(char **lineptr, size_t *n);
+char *my_strtok(char *src, char *delim);
 
 
 
