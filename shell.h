@@ -20,6 +20,7 @@
 #include <sys/wait.h>
 #include <stdarg.h>
 #include <errno.h>
+#include <stddef.h>
 
 extern char **environ;
 
@@ -37,7 +38,12 @@ int is_command_in_path(const char *command);
 void exit_shell(int status);
 void print_environment(void);
 ssize_t _getline(char **lineptr, size_t *n);
-char *my_strtok(char *src, char *delim);
+char *my_strtok(char *input_str, char *delimiter);
+int my_strncmp(const char *str1, const char *str2, size_t max_chars);
+void handle_setenv(const char *command);
+void handle_unsetenv(const char *command);
+int set_environment_variable(const char *variable, const char *value);
+int unset_environment_variable(const char *variable);
 
 
 
