@@ -34,7 +34,7 @@ void execute_prompt(const char *command);
 void execute_command_with_args(const char *command);
 void execute_command(const char *command);
 int is_command_in_path(const char *command);
-void exit_shell(void);
+void exit_shell(int status);
 void print_environment(void);
 ssize_t _getline(char **lineptr, size_t *n);
 char *my_strtok(char *src, char *delim);

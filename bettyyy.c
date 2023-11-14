@@ -17,7 +17,7 @@ int add_numbers(int nma, int mpa)
  * main - main point.
  *
  * Return: 0 on success.
- */
+ *
 int main(void)
 {
 	int result = add_numbers(10, 13);
@@ -25,4 +25,4 @@ int main(void)
 	printf("Result: %d\n", result);
 
 	return (0);
-}
+}*/

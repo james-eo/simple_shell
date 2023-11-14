@@ -8,15 +8,17 @@
 int main(void)
 {
 	char user_command[127];
+	int status;
 
 	while (1)
 	{
 		display_prompt();
 		read_input(user_command, sizeof(user_command));
 
-		if (strcmp(user_command, "exit") == 0)
+		if (strncmp(user_command, "exit", 4) == 0)
 		{
-			exit_shell();
+			status = atoi(user_command + 5);
+			exit_shell(status);
 		}
 		else if (strcmp(user_command, "env") == 0)
 		{

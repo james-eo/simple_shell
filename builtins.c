@@ -5,12 +5,13 @@
 
 /**
  * exit_shell - exits the shell
+ * @status: prints the exit status
  */
 
-void exit_shell(void)
+void exit_shell(int status)
 {
-	my_printf("Exiting shell.\n");
-	exit(EXIT_SUCCESS);
+	my_printf("Exiting shell with status %d.\n", status);
+	exit(status);
 }
 
 /**
