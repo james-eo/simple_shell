@@ -16,8 +16,10 @@
 #include <stdbool.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include "shell.h"
 
-
+int add_numbers(int nma, int mpa);
+int main(void);
 void display_prompt(void);
 void my_printf(const char *print_command, ...);
 void read_input(char *input, size_t size_of_input);
