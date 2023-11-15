@@ -1,4 +1,4 @@
-#include "simple_shell"
+#include "shell.h"
 
 /**
  * *ssstrtok - Split a string/line into tokens/words. The delimeters are NULL

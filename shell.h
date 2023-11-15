@@ -21,9 +21,6 @@
 #include <stdbool.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-<<<<<<< HEAD
-#include "shell.h"
-=======
 #include <stdarg.h>
 #include <errno.h>
 #include <stddef.h>
