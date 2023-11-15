@@ -9,12 +9,12 @@ void execute_command_with_args(const char *command)
 {
 	char *args[170];
 	int arg_c = 0;
-	char *tokenized_command = strtok((char *)command, " ");
+	char *tokenized_command = my_strtok((char *)command, " ");
 
 	while (tokenized_command != NULL)
 	{
 		args[arg_c++] = tokenized_command;
-		tokenized_command = strtok(NULL, " ");
+		tokenized_command = my_strtok(NULL, " ");
 	}
 	args[arg_c] = NULL;
 	if (execvp(args[0], args) == -1)
@@ -32,12 +32,12 @@ void execute_command(const char *command)
 {
 	char *args[170];
 	int arg_c = 0;
-	char *tokenized_command = strtok((char *)command, " ");
+	char *tokenized_command = my_strtok((char *)command, " ");
 
 	while (tokenized_command != NULL)
 	{
 		args[arg_c++] = tokenized_command;
-		tokenized_command = strtok(NULL, " ");
+		tokenized_command = my_strtok(NULL, " ");
 	}
 	args[arg_c] = NULL;
 
@@ -91,7 +91,7 @@ int is_command_in_path(const char *command)
 	}
 	path = getenv("PATH");
 	path_copy = strdup(path);
-	token = strtok(path_copy, ":");
+	token = my_strtok(path_copy, ":");
 
 	while (token != NULL)
 	{
@@ -103,7 +103,7 @@ int is_command_in_path(const char *command)
 			free(path_copy);
 			return (1);
 		}
-		token = strtok(NULL, ":");
+		token = my_strtok(NULL, ":");
 	}
 	free(path_copy);
 	return (0);
