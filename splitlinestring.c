@@ -1,11 +1,11 @@
-#include "shell.h"
+/*#include "shell.h"
 
-/**
+**
  * *ssstrtok - Split a string/line into tokens/words. The delimeters are NULL
  * @string: the string
  * @delimeter: delimeter string
  * Return: array of pointers to store the tokens/string or NULL on failure
- */
+ *
 
 char *ssstrtok(char str, char delimeter)
 {
@@ -47,4 +47,5 @@ char *ssstrtok(char str, char delimeter)
         ss[b] = NULL;
         return (ss);
 }
+*/
 
