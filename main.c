@@ -8,39 +8,19 @@
 int main(void)
 {
 	char user_command[127];
-	int status;
+	char *commands[10];
+	int num_commands;
+	int i;
 
 	while (1)
 	{
 		display_prompt();
 		read_input(user_command, sizeof(user_command));
+		num_commands = split_commands(user_command, commands);
 
-		if (my_strncmp(user_command, "exit", 4) == 0)
+		for (i = 0; i < num_commands; ++i)
 		{
-			status = atoi(user_command + 5);
-			exit_shell(status);
-		}
-		else if (my_strncmp(user_command, "env", 3) == 0)
-		{
-			print_environment();
-		}
-		else if (my_strncmp(user_command, "setenv", 6) == 0)
-		{
-			handle_setenv(user_command);
-		}
-		else if (my_strncmp(user_command, "unsetenv", 8) == 0)
-		{
-			handle_unsetenv(user_command);
-		}
-		else if (my_strncmp(user_command, "cd", 2) == 0)
-		{
-			char *path = my_strtok(user_command + 3, " ");
-
-			change_directory(path);
-		}
-		else
-		{
-			execute_prompt(user_command);
+			process_command(commands[i]);
 		}
 	}
 	return (0);
@@ -91,4 +71,24 @@ void handle_unsetenv(const char *command)
 	{
 		write(STDERR_FILENO, "Usage: unsetenv VARIABLE\n", 26);
 	}
+}
+
+/**
+ * split_commands - Splits input commands based on the ";" delimiter
+ * @input: The input string containing commands separated by ";"
+ * @commands: An array to store the individual commands
+ * Return: The number of commands
+ */
+
+int split_commands(char *input, char *commands[])
+{
+	int num_commands = 0;
+	char *token = strtok(input, ";");
+
+	while (token != NULL && num_commands < 10)
+	{
+		commands[num_commands++] = token;
+		token = strtok(NULL, ";");
+	}
+	return (num_commands);
 }
