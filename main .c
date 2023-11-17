@@ -83,12 +83,12 @@ void handle_unsetenv(const char *command)
 int split_commands(char *input, char *commands[])
 {
 	int num_commands = 0;
-	char *token = my_strtok(input, ";");
+	char *token = strtok(input, ";");
 
 	while (token != NULL && num_commands < 10)
 	{
 		commands[num_commands++] = token;
-		token = my_strtok(NULL, ";");
+		token = strtok(NULL, ";");
 	}
 	return (num_commands);
 }
