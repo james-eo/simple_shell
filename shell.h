@@ -28,8 +28,6 @@
 
 extern char **environ;
 
-
-int add_numbers(int nma, int mpa);
 int main(void);
 void display_prompt(void);
 void my_printf(const char *print_command, ...);
@@ -40,9 +38,6 @@ void execute_command(const char *command);
 int is_command_in_path(const char *command);
 void exit_shell(int status);
 void print_environment(void);
-ssize_t _getline(char **lineptr, size_t *n);
-char *my_strtok(char *input_str, char *delimiter);
-int my_strncmp(const char *str1, const char *str2, size_t max_chars);
 void handle_setenv(const char *command);
 void handle_unsetenv(const char *command);
 int set_environment_variable(const char *variable, const char *value);
@@ -53,6 +48,15 @@ void handle_exit(char *command);
 void process_command(char *command);
 char *my_strstr(const char *stack, const char *needle);
 
+/**
+ * String manipulation functions
+*/
+size_t my_strlen(const char *str);
+int my_strcpy(char *dest, const char *src);
+char *my_strtok(char *input_str, char *delimiter);
+int my_strncmp(const char *str1, const char *str2, size_t max_chars);
+int my_itoa(char *buffer, int num);
+void reverse_string(char *str, int length);
 
 
 
